@@ -1,12 +1,24 @@
 import 'graphql-import-node';
-import { makeExecutableSchema } from 'graphql-tools';
-import { GraphQLSchema } from 'graphql';
-import { typeDefs } from './typeDefs/index';
 import { resolvers } from './resolvers/index';
+import { authorTypeDefs } from './typeDefs/authors';
+import { bookTypeDefs } from './typeDefs/books';
 
-const schema: GraphQLSchema = makeExecutableSchema({
-  typeDefs,
-  resolvers,
-});
+const localServices = {
+  authors: {
+    schema: {
+      typeDefs: [...authorTypeDefs, ...bookTypeDefs],
+      resolvers: resolvers,
+    },
+  },
+};
 
-export default schema;
+const remoteServices = {
+  books: {
+    url: 'http://localhost:5001/graphql',
+  },
+};
+
+export const services = {
+  ...localServices,
+  ...remoteServices,
+};

@@ -1,11 +1,11 @@
 import { gql } from 'apollo-server-express';
 import { DocumentNode } from 'graphql';
 
-export const bookMutationResponse: DocumentNode = gql`
-  type BookMutationResponse {
+export const authorMutationResponse: DocumentNode = gql`
+  type AuthorMutationResponse {
     success: Boolean!
     message: String!
-    books: [Book]
-    book: Book
+    authors: [Author!]
+    author: Author
   }
 `;

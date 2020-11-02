@@ -2,9 +2,9 @@ import { gql } from 'apollo-server-express';
 import { DocumentNode } from 'graphql';
 
 export const mutationType: DocumentNode = gql`
-  type Mutation {
-    createBook(bookToAdd: BookInput!): BookMutationResponse!
-    updateBook(bookToUpdate: BookInput!): BookMutationResponse!
-    deleteBook(bookIdToDelete: ID!): BookMutationResponse!
+  extend type Mutation {
+    createAuthor(authorToAdd: AuthorInput!): AuthorMutationResponse!
+    updateAuthor(authorToUpdate: AuthorInput!): AuthorMutationResponse!
+    deleteAuthor(authorIdToDelete: ID!): AuthorMutationResponse!
   }
 `;

@@ -8,15 +8,21 @@ import {
 import { IAuthorMutationResponse } from '../models/authors/AuthorMutationResponse';
 import { GraphQLResolverMap } from 'apollo-graphql';
 import { IAuthor } from '../models/authors/Author';
-import { IBook } from '../models/books/Book';
 
-export const bookExternalResolvers: GraphQLResolverMap = {
-  Book: {
-    async authors(book: IBook) {
-      let authors: IAuthor[] = await getAllAuthors();
-
-      return authors.filter(({ booksIds }) => booksIds.includes(book.id));
+export const authorExternalResolvers: GraphQLResolverMap = {
+  Author: {
+    book(author: IAuthor) {
+      return author.booksIds.map((id) => ({ __typename: 'Book', id }));
     },
+  },
+};
+
+export const authorsQueries: GraphQLResolverMap = {
+  Query: {
+    Authors: async () => {
+      return await getAllAuthors();
+    },
+    Author: async (_, { AuthorId }) => await getAuthorById(AuthorId),
   },
 };
 
