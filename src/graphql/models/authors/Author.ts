@@ -1,6 +1,8 @@
+import { IBook } from '../books/Book';
+
 export interface IAuthor {
   id: number;
   firstName: string;
   lastName: string;
-  booksIds: number[];
+  books: number[];
 }

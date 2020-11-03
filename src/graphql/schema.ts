@@ -1,12 +1,11 @@
 import 'graphql-import-node';
 import { resolvers } from './resolvers/index';
-import { authorTypeDefs } from './typeDefs/authors';
-import { bookTypeDefs } from './typeDefs/books';
+import { typeDefs } from './typeDefs';
 
 const localServices = {
   authors: {
     schema: {
-      typeDefs: [...authorTypeDefs, ...bookTypeDefs],
+      typeDefs: typeDefs,
       resolvers: resolvers,
     },
   },

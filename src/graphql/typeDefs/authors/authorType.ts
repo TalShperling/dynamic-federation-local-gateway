@@ -4,8 +4,8 @@ import { DocumentNode } from 'graphql';
 export const authorType: DocumentNode = gql`
   type Author {
     id: ID!
-    title: String!
-    author: String!
+    firstName: String!
+    lastName: String!
     books: [Book]
   }
 `;

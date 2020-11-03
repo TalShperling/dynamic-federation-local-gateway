@@ -11,18 +11,20 @@ import { IAuthor } from '../models/authors/Author';
 
 export const authorExternalResolvers: GraphQLResolverMap = {
   Author: {
-    book(author: IAuthor) {
-      return author.booksIds.map((id) => ({ __typename: 'Book', id }));
+    books: async (author: any) => {
+      let bla = author.books.map((id: number) => ({ __typename: 'Book', id }));
+      console.log(bla);
+      return bla;
     },
   },
 };
 
 export const authorsQueries: GraphQLResolverMap = {
   Query: {
-    Authors: async () => {
+    authors: async () => {
       return await getAllAuthors();
     },
-    Author: async (_, { AuthorId }) => await getAuthorById(AuthorId),
+    author: async (_, { AuthorId }) => await getAuthorById(AuthorId),
   },
 };
 

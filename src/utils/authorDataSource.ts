@@ -5,13 +5,13 @@ let authors: IAuthor[] = [
     id: 1,
     firstName: 'Tal',
     lastName: 'Shperling',
-    booksIds: [1, 2],
+    books: [1, 2],
   },
   {
     id: 2,
     firstName: 'Avi',
     lastName: 'Levi',
-    booksIds: [3],
+    books: [3],
   },
 ];
 

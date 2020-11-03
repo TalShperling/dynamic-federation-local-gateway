@@ -3,7 +3,7 @@ import { DocumentNode } from 'graphql';
 
 export const queryType: DocumentNode = gql`
   extend type Query {
-    author(id: ID!): Author
+    author(authorId: ID!): Author
     authors: [Author]
   }
 `;
