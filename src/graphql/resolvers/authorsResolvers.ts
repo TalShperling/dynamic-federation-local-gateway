@@ -1,20 +1,18 @@
+import { GraphQLResolverMap } from 'apollo-graphql';
 import {
   addAuthor,
   deleteAuthorById,
   getAllAuthors,
   getAuthorById,
-  updateAuthor,
+  updateAuthor
 } from '../../utils/authorDataSource';
-import { IAuthorMutationResponse } from '../models/authors/AuthorMutationResponse';
-import { GraphQLResolverMap } from 'apollo-graphql';
 import { IAuthor } from '../models/authors/Author';
+import { IAuthorMutationResponse } from '../models/authors/AuthorMutationResponse';
 
 export const authorExternalResolvers: GraphQLResolverMap = {
   Author: {
-    books: async (author: any) => {
-      let bla = author.books.map((id: number) => ({ __typename: 'Book', id }));
-      console.log(bla);
-      return bla;
+    books: async (author: IAuthor) => {
+      return author.books.map((id: string) => ({ __typename: 'Book', id }));
     },
   },
 };
