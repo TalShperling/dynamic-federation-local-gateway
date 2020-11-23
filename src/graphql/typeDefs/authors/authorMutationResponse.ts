@@ -5,7 +5,7 @@ export const authorMutationResponse: DocumentNode = gql`
   type AuthorMutationResponse {
     success: Boolean!
     message: String!
-    authors: [Author!]
-    author: Author
+    authors: [AuthorBeforeFederate!]
+    author: AuthorBeforeFederate
   }
 `;

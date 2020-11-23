@@ -8,4 +8,8 @@ export const bookType: DocumentNode = gql`
     firstWord: String @requires(fields: "title")
     authors: [Author]
   }
+
+  extend type Mutation {
+    getAllBooks(authorToAdd: Book!): AuthorMutationResponse!
+  }
 `;
