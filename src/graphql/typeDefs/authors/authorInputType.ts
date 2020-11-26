@@ -6,6 +6,6 @@ export const authorInputType: DocumentNode = gql`
     id: ID!
     firstName: String!
     lastName: String!
-    books: [Int]
+    books: [ID!]!
   }
 `;

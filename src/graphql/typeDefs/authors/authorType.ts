@@ -6,6 +6,13 @@ export const authorType: DocumentNode = gql`
     id: ID!
     firstName: String!
     lastName: String!
-    books: [Book]
+    books: [Book!]!
+  }
+
+  type AuthorBeforeFederate {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    books: [ID!]!
   }
 `;

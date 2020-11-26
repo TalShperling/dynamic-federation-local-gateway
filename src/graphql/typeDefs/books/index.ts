@@ -1,4 +1,5 @@
 import { bookType } from './bookType';
 import { DocumentNode } from 'graphql';
+import { blaType } from './blaType';
 
-export const bookTypeDefs: DocumentNode[] = [bookType];
+export const bookTypeDefs: DocumentNode[] = [bookType, blaType];

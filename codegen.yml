@@ -1,0 +1,12 @@
+overwrite: true
+schema:
+  - './src/graphql/typeDefs/**/*.ts':
+      noRequire: true
+generates:
+  src/interfaces/types.d.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-resolvers'
+    config:
+      - enumsAsTypes: true
+      - federation: true
